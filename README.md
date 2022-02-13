@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Life at Spotify
+
+*Work in progress*
+
+Replication of [Life at Spotify](https://www.lifeatspotify.com).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
