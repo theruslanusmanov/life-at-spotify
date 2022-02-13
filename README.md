@@ -1,5 +1,7 @@
 # Life at Spotify
 
+<img style="width: 720px; margin: 0 auto;" src="pictures/life-at-spotify-jobs.png"  alt="Life at Spotify / jobs"/>
+
 *Work in progress*
 
 Replication of [Life at Spotify](https://www.lifeatspotify.com).
