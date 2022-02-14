@@ -21,6 +21,9 @@ header {
   padding-top: 10%;
   max-width: 1440px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .logo {
@@ -42,4 +45,10 @@ input {
   border: none;
   width: 100%;
   text-align: center;
+  margin-bottom: 70px;
+}
+
+.filters {
+  display: flex;
+  gap: 40px;
 }

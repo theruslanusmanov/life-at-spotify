@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Selector} from './ui/Selector';
 
 function App() {
   return (
@@ -11,6 +12,11 @@ function App() {
       </header>
       <div className="container">
         <input type="text" value="Wait, where's your coffee?" />
+        <div className="filters">
+          <Selector label="Location"/>
+          <Selector label="Category"/>
+          <Selector label="Job type"/>
+        </div>
       </div>
     </div>
   );
