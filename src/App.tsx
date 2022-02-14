@@ -1,4 +1,5 @@
 import React from 'react';
+import {EntryContainer} from './components/EntryContainer';
 import logo from './logo.svg';
 import './App.css';
 import {Selector} from './ui/Selector';
@@ -18,8 +19,15 @@ function App() {
           <Selector label="Job type"/>
         </div>
       </div>
-      <div className="container search-total">
-        <p><b>614</b> jobs in <b>all locations</b> in <b>all categories</b> in <b>all job types</b></p>
+      <div className="container">
+        <div className="search-total">
+          <p><b>614</b> jobs in <b>all locations</b> in <b>all categories</b> in <b>all job types</b></p>
+        </div>
+      </div>
+      <div className="container search-results">
+        <EntryContainer/>
+        <EntryContainer/>
+        <EntryContainer/>
       </div>
     </div>
   );
