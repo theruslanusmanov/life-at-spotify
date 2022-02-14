@@ -1,0 +1,11 @@
+.chips {
+  display: flex;
+  gap: 10px;
+
+  &__item {
+    background: #ffc864;
+    padding: 6px 15px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+  }
+}
