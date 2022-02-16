@@ -14,6 +14,9 @@ main {
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
   padding-bottom: 120px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 header {
@@ -92,10 +95,29 @@ footer {
   position: fixed;
   z-index: -1;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 150px 0 60px;
+  box-sizing: border-box;
 }
 
 .footer__pushler {
   width: 100%;
   min-height: 1156px;
   height: 100%;
+}
+
+footer h2 {
+  font-size: 3.625rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+footer p {
+  font-size: 1.625rem;
+  font-weight: 300;
+  max-width: 640px;
+  text-align: center;
+  margin: 0;
 }

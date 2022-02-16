@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {EntryContainer} from './components/EntryContainer';
 import logo from './logo.svg';
+import door from './door.svg';
 import './App.css';
 import {Selector} from './ui/Selector';
 
@@ -55,7 +56,10 @@ function App() {
         </div>
       </main>
       <footer>
-        <h1>Footer</h1>
+        <img src={door} alt="door"/>
+        <h2>Sound good?</h2>
+        <p>Get to know our hiring process before you apply or find answers to
+          any lingering questions, right here, right now.</p>
       </footer>
       <div className="footer__pushler"/>
     </div>
