@@ -1,9 +1,19 @@
 .site {
-  height: 100vh;
-  background-color: white;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  box-sizing: border-box;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  padding-bottom: 120px;
 }
 
 header {
@@ -66,9 +76,26 @@ input {
 }
 
 .search-results {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
   max-width: 50%;
+}
+
+footer {
+  width: 100%;
+  min-height: 1156px;
+  height: 100%;
+  background-color: black;
+  position: fixed;
+  z-index: -1;
+  color: white;
+}
+
+.footer__pushler {
+  width: 100%;
+  min-height: 1156px;
+  height: 100%;
 }

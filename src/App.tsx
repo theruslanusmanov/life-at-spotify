@@ -5,12 +5,13 @@ import './App.css';
 import {Selector} from './ui/Selector';
 
 const searchPreviews = [
-  "Hey, great to see you here",
-  "Hmmmm, choices choices",
-  "Werk werk werk werk werk",
-  "Wait, where's your coffee?",
-  "Hey, wanna join the band?",
-]
+  'Hey, great to see you here',
+  'Hmmmm, choices choices',
+  'Werk werk werk werk werk',
+  'Wait, where\'s your coffee?',
+  'Hey, wanna join the band?',
+  'Hey. You got this.',
+];
 
 function App() {
   const [hideHeader, setHideHeader] = useState<boolean>(false);
@@ -32,25 +33,31 @@ function App() {
         <img src={logo} className="logo" alt="logo"/>
         <a href="https://www.lifeatspotify.com/jobs">All Jobs</a>
       </header>
-      <div className="container search-row">
-        <input type="text" value={searchText} readOnly/>
-        <div className="filters">
-          <Selector label="Location"/>
-          <Selector label="Category"/>
-          <Selector label="Job type"/>
+      <main>
+        <div className="container search-row">
+          <input type="text" value={searchText} readOnly/>
+          <div className="filters">
+            <Selector label="Location"/>
+            <Selector label="Category"/>
+            <Selector label="Job type"/>
+          </div>
         </div>
-      </div>
-      <div className="container">
-        <div className="search-total">
-          <p><b>614</b> jobs in <b>all locations</b> in <b>all
-            categories</b> in <b>all job types</b></p>
+        <div className="container">
+          <div className="search-total">
+            <p><b>614</b> jobs in <b>all locations</b> in <b>all
+              categories</b> in <b>all job types</b></p>
+          </div>
         </div>
-      </div>
-      <div className="container search-results">
-        <EntryContainer/>
-        <EntryContainer/>
-        <EntryContainer/>
-      </div>
+        <div className="container search-results">
+          <EntryContainer/>
+          <EntryContainer/>
+          <EntryContainer/>
+        </div>
+      </main>
+      <footer>
+        <h1>Footer</h1>
+      </footer>
+      <div className="footer__pushler"/>
     </div>
   );
 }
