@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {EntryContainer} from './components/EntryContainer';
 import logo from './logo.svg';
 import door from './door.svg';
-import './App.css';
+import './App.scss';
 import {Selector} from './ui/Selector';
 
 const searchPreviews = [
@@ -16,21 +16,27 @@ const searchPreviews = [
 
 function App() {
   const [hideHeader, setHideHeader] = useState<boolean>(false);
-  const [searchText, setSearchText] = useState<string>(searchPreviews[0]);
+  const [searchText, _] = useState<string>(searchPreviews[0]);
+  const [headerScrolled, setHeaderScrolled] = useState<boolean>(false);
+  const [lastScroll, setLastScroll] = useState<number>(0);
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      if (window.scrollY >= 60) {
+      if (window.scrollY >= lastScroll) {
         setHideHeader(true);
       } else {
         setHideHeader(false);
       }
+      setLastScroll(window.scrollY);
+      window.scrollY > 60 ? setHeaderScrolled(true) : setHideHeader(false);
+      console.log(window.scrollY);
+      console.log(headerScrolled);
     });
   }, []);
 
   return (
     <div className="site">
-      <header hidden={hideHeader}>
+      <header hidden={hideHeader} className={headerScrolled ? "header__scrolled" : ""}>
         <img src={logo} className="logo" alt="logo"/>
         <a href="https://www.lifeatspotify.com/jobs">All Jobs</a>
       </header>
