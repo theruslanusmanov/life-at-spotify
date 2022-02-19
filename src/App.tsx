@@ -17,26 +17,26 @@ const searchPreviews = [
 function App() {
   const [hideHeader, setHideHeader] = useState<boolean>(false);
   const [searchText, _] = useState<string>(searchPreviews[0]);
-  const [headerScrolled, setHeaderScrolled] = useState<boolean>(false);
   const [lastScroll, setLastScroll] = useState<number>(0);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY >= lastScroll) {
+    const onScroll = () => {
+      if (window.scrollY >= lastScroll && window.scrollY >= 30) {
         setHideHeader(true);
       } else {
         setHideHeader(false);
       }
       setLastScroll(window.scrollY);
-      window.scrollY > 60 ? setHeaderScrolled(true) : setHideHeader(false);
-      console.log(window.scrollY);
-      console.log(headerScrolled);
-    });
-  }, []);
+    };
+    window.addEventListener('scroll', onScroll);
+
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [hideHeader, lastScroll]);
 
   return (
     <div className="site">
-      <header hidden={hideHeader} className={headerScrolled ? "header__scrolled" : ""}>
+      <header hidden={hideHeader}
+              className={window.scrollY > 10 ? 'header__scrolled' : ''}>
         <img src={logo} className="logo" alt="logo"/>
         <a href="https://www.lifeatspotify.com/jobs">All Jobs</a>
       </header>
