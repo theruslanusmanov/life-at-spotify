@@ -56,9 +56,7 @@ function App() {
           </div>
         </div>
         <div className="container search-results">
-          <EntryContainer/>
-          <EntryContainer/>
-          <EntryContainer/>
+          { [...new Array(3)].map(() => <EntryContainer/>) }
         </div>
       </main>
       <footer>
