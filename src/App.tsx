@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {EntryContainer} from './components/EntryContainer';
+import {EntryContainer, Job} from './components/EntryContainer';
 import logo from './logo.svg';
 import door from './door.svg';
 import './App.scss';
@@ -12,6 +12,21 @@ const searchPreviews = [
   'Wait, where\'s your coffee?',
   'Hey, wanna join the band?',
   'Hey. You got this.',
+];
+
+const jobs: Job[] = [
+  {
+    title: 'iOS Engineer, Consumer Experience',
+    address: 'New York'
+  },
+  {
+    title: 'iOS Engineer, Consumer Experience',
+    address: 'New York'
+  },
+  {
+    title: 'iOS Engineer, Consumer Experience',
+    address: 'New York'
+  },
 ];
 
 function App() {
@@ -56,7 +71,7 @@ function App() {
           </div>
         </div>
         <div className="container search-results">
-          { [...new Array(3)].map(() => <EntryContainer/>) }
+          { jobs.map((job: Job) => <EntryContainer job={job}/>) }
         </div>
       </main>
       <footer>

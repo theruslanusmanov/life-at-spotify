@@ -2,7 +2,12 @@ import React from 'react';
 import './entry-container.scss';
 import {Chips} from '../ui/Chips';
 
-export const EntryContainer = () => {
+export type Job = {
+  title: string;
+  address: string;
+}
+
+export const EntryContainer = ({job}: { job: Job }) => {
 
   return (
     <div className="entry entry__container">
@@ -14,7 +19,7 @@ export const EntryContainer = () => {
         </p>
       </div>
       <div className="entry__cols">
-        <Chips />
+        <Chips/>
         <p>Permanent</p>
       </div>
     </div>
