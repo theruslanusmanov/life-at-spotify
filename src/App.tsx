@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import door from './door.svg';
 import './App.scss';
 import {Selector} from './ui/Selector';
+import { throttle } from 'lodash';
 
 const searchPreviews = [
   'Hey, great to see you here',
@@ -27,6 +28,18 @@ const jobs: Job[] = [
     title: 'iOS Engineer, Consumer Experience',
     address: 'New York'
   },
+  {
+    title: 'iOS Engineer, Consumer Experience',
+    address: 'New York'
+  },
+  {
+    title: 'iOS Engineer, Consumer Experience',
+    address: 'New York'
+  },
+  {
+    title: 'iOS Engineer, Consumer Experience',
+    address: 'New York'
+  },
 ];
 
 function App() {
@@ -34,19 +47,22 @@ function App() {
   const [searchText, _] = useState<string>(searchPreviews[0]);
   const [lastScroll, setLastScroll] = useState<number>(0);
 
-  useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY >= lastScroll && window.scrollY >= 30) {
-        setHideHeader(true);
-      } else {
-        setHideHeader(false);
-      }
-      setLastScroll(window.scrollY);
-    };
-    window.addEventListener('scroll', onScroll);
+  const handleScroll = () => {
+    if (window.scrollY >= lastScroll && window.scrollY >= 30) {
+      setHideHeader(true);
+    } else {
+      setHideHeader(false);
+    }
+    setLastScroll(window.scrollY);
+  };
 
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [hideHeader, lastScroll]);
+  const handleScrollThrottled = throttle(handleScroll, 250)
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScrollThrottled);
+
+    return () => window.removeEventListener('scroll', handleScrollThrottled);
+  }, [handleScrollThrottled]);
 
   return (
     <div className="site">
