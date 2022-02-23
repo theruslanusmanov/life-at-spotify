@@ -3,7 +3,8 @@ import {EntryContainer, Job} from './components/EntryContainer';
 import logo from './logo.svg';
 import door from './door.svg';
 import './App.scss';
-import {Selector} from './ui/Selector';
+import {Button} from './ui/Button/Button';
+import {Selector} from './ui/Selector/Selector';
 import { throttle } from 'lodash';
 
 const searchPreviews = [
@@ -89,6 +90,7 @@ function App() {
         <div className="container search-results">
           { jobs.map((job: Job) => <EntryContainer job={job}/>) }
         </div>
+        <Button title="Load more jobs" />
       </main>
       <footer>
         <img src={door} alt="door"/>

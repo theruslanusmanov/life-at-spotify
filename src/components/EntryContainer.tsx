@@ -1,6 +1,6 @@
 import React from 'react';
 import './entry-container.scss';
-import {Chips} from '../ui/Chips';
+import {Chips} from '../ui/Chips/Chips';
 
 export type Job = {
   title: string;
