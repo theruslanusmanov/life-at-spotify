@@ -5,7 +5,7 @@ import door from './door.svg';
 import './App.scss';
 import {Button} from './ui/Button/Button';
 import {Selector} from './ui/Selector/Selector';
-import { throttle } from 'lodash';
+import {throttle} from 'lodash';
 
 const searchPreviews = [
   'Hey, great to see you here',
@@ -16,32 +16,10 @@ const searchPreviews = [
   'Hey. You got this.',
 ];
 
-const jobs: Job[] = [
-  {
-    title: 'iOS Engineer, Consumer Experience',
-    address: 'New York'
-  },
-  {
-    title: 'iOS Engineer, Consumer Experience',
-    address: 'New York'
-  },
-  {
-    title: 'iOS Engineer, Consumer Experience',
-    address: 'New York'
-  },
-  {
-    title: 'iOS Engineer, Consumer Experience',
-    address: 'New York'
-  },
-  {
-    title: 'iOS Engineer, Consumer Experience',
-    address: 'New York'
-  },
-  {
-    title: 'iOS Engineer, Consumer Experience',
-    address: 'New York'
-  },
-];
+const jobs: Job[] = [...new Array(12)].map(() => ({
+  title: 'iOS Engineer, Consumer Experience',
+  address: 'New York',
+}));
 
 function App() {
   const [hideHeader, setHideHeader] = useState<boolean>(false);
@@ -57,7 +35,7 @@ function App() {
     setLastScroll(window.scrollY);
   };
 
-  const handleScrollThrottled = throttle(handleScroll, 250)
+  const handleScrollThrottled = throttle(handleScroll, 250);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScrollThrottled);
@@ -88,9 +66,13 @@ function App() {
           </div>
         </div>
         <div className="container search-results">
-          { jobs.map((job: Job) => <EntryContainer job={job}/>) }
+          {
+            jobs.map(
+              (job: Job, key: number) => <EntryContainer job={job} key={key}/>)
+          }
         </div>
-        <Button title="Load more jobs" />
+        <Button title="Load more jobs"
+                onClick={() => console.log('Button clicked!')}/>
       </main>
       <footer>
         <img src={door} alt="door"/>
